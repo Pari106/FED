@@ -26,6 +26,31 @@
 /****************/
 /* JOUW STYLING */
 /****************/
+@import url(https://db.onlinewebfonts.com/c/fd811cbfe623f3e2be52b981f67a2102?family=Calibre-Regular);
 
-/* jouw code */
+@font-face {
+    font-family: "Calibre-Regular";
+    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot");
+    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.svg#Calibre-Regular")format("svg");
+}
+
+h1 {
+	font-family: "Calibre-Regular";
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 1.875rem;
+}
+
+h2 {
+	font-family: "Calibre-Regular";
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 1.125rem;
+}
+
+
 

@@ -36,15 +36,15 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor kick-off werkgroep</summary>
 
   ### Je opdracht:
- https://www.paradiso.nl
+ https://www.melkweg.nl/nl/
 
   #### Screenshot(s) van de eerste pagina (small screen): 
   hier de naam van de pagina  
-  <img src="parad.jpg" width="375px" alt="thuisscherm paradiso website, met planning van aankomende optredes">
+  <img src="/readme-images/home-melkweg.png" width="375px" alt="thuisscherm melkweg website">
 
   #### Screenshot(s) van de tweede pagina (small screen):
   hier de naam van de pagina  
-  <img src="nieuws.jpg" width="375px" alt="nieuws over paradiso">
+  <img src="/readme-images/artiest-melkweg.png" width="375px" alt="informatie artiest melkweg">
  
 </details>
 
@@ -57,6 +57,10 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
 
   ### Bevindingen
   Lijst met je bevindingen die in de test naar voren kwamen:
+  -De screenreader is super ingewikkeld om te gebruiken, ik denk dat het grotendeels aan mij lag dat ik de website niet goed kon navigeren en begrijpen met gebruik van de screanreader.
+  -Ik was positief verrast hoe goed ik door de website kan navigeren met alleen de tab en enter toets, dus dit vind ik erg goed aan de website.
+  -Je kan in de website zelf op een pauze knop drukken zodat de animaties (in het logo en op de achtergrond van de artiesten selectie) niet bewegen en de website wel nog goed functioneert.
+  -Er worden geen ingewikkelde kleuren gebruikt waardoor het voor kleurenblinde mensen geen probleem is om door de website heen te gaan.
 
 </details>
 
@@ -68,7 +72,7 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken na afloop 3<sup>e</sup> werkgroep</summary>
 
   ### de hele pagina: 
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van de hele pagina">
+  <img src="/readme-images/breakdownschets.png" width="375px" alt="breakdown van de hele pagina">
 
   ### dynamisch deel (bijv menu): 
   <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="breakdown van een dynamisch deel">
