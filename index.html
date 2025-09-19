@@ -10,6 +10,9 @@
 	
 	<link href="styles/style.css" rel="stylesheet">
 	<link rel="icon" type="image/svg+xml" href="images/faviconM.svg">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -18,86 +21,137 @@
 	</header>
 	<main>
 		<section>
-			<ul>
+			<ul class="grid-list">
 				<li>
-					<img src=".jpg" alt="afbeelding">
+					<a href="artiest.html">
+					<img src="images/radar.jpg" alt="afbeelding zingende man">
 					<h2>Melkweg Radar</h2>
-				</li>
-				<li>
-					<img src=".jpg" alt="afbeelding">
-					<h4>ma 08 sep</h4>
-					<h3>Lemonheads</h3>
-				</li>
-				<li>
-					<img src=".jpg" alt="afbeelding">
-					<h4>ma 08 sep</h4>
-					<h3>Lemonheads</h3>
-				</li>
-			</ul>
-		</section>
-		<section>
-			<h2>Programma</h2>
-			<button>Just announced</button>
-			<button>Next up</button>
-			<hr>
-			<ul>
-				<li>
-					<a>Rinse FM: Flowdan + more</a>
-					<a>vr 28 nov</a>
-					<a>Club</a>
-					<hr>
-				</li>
-				<li>
-					<a>Good Neighbours</a>
-					<a>ma 2 mrt</a>
-					<a>Concert</a>
-					<hr>
-				</li>
-				<li>
-					<a>Fierce</a>
-					<a>vr 3 okt</a>
-					<a>Club</a>
-					<hr>
-				</li>
-			</ul>
-		</section>
-		<section>
-			<p>HIGHLIGHTS</p>
-			<hr>
-			<ul>
-				<li>
-					<a>
-					<img src="images/ADE2025.jpg" alt="afbeelding dansende mensen ade">
-					<h3>ADE 2025</h3>
-					<p>Zoals elk jaar staat Melkweg weer 5 dagen lang volledig op de kop tijdens Amsterdam Dance Event met een bomvol programma. Op...</p>
 					</a>
-					<img src="icon" alt="pijltje">
+				</li>
+				<li>
+					<img src="images/noizboiz.jpg" alt="afbeelding">
+					<h4>wo 22 okt</h4>
+					<a>Noizboiz presents: grime</a>
+				</li>
+				<li>
+					<img src="images/imanu.jpeg" alt="afbeelding">
+					<h4>vr 24 okt</h4>
+					<a>Imanu presents de__verte</a>
+				</li>
+				<li>
+					<img src="images/indie.jpg" alt="afbeelding">
+					<h2>Indie</h2>
+				</li>
+				<li>
+					<img src="images/simone.jpg" alt="afbeelding">
+					<h4>do 04 dec</h4>
+					<a>sim0ne - [club zer0]</a>
+				</li>
+				<li>
+					<img src="images/grentperez.jpg" alt="afbeelding">
+					<h4>zo 28 sep</h4>
+					<a>Grentperez</a>
+				</li>
+				<li>
+					<img src="images/cg5.jpg" alt="afbeelding">
+					<h4>zo 07 dec</h4>
+					<a>Cg5</a>
+				</li>
+				<li>
+					<img src="images/heavy.jpg" alt="afbeelding">
+					<h2>Heavy</h2>
+				</li>
+				<li>
+					<img src="images/arthur.webp" alt="afbeelding">
+					<h4>ma 01 dec</h4>
+					<a>Arthur Hill</a>
+				</li>
+				<li>
+					<img src="images/lagum.jpg" alt="afbeelding">
+					<h4>do 09 apr</h4>
+					<a>Lagum</a>
+				</li>
+			</ul>
+		</section>
+		<section class="programma-sectie">
+    <h3>Programma</h3>
+    <ul class="button-list">
+        <li><button id="just-announced">Just announced</button></li>
+        <li><button id="next-up">Next up</button></li>
+    </ul>
+    <ul id="event-list">
+        <li>
+            <a>Rinse FM: Flowdan + more</a>
+            <a>vr 28 nov</a>
+            <a>Club</a>
+            <hr>
+        </li>
+        <li>
+            <a>Good Neighbours</a>
+            <a>ma 2 mrt</a>
+            <a>Concert</a>
+            <hr>
+        </li>
+        <li>
+            <a>Fierce</a>
+            <a>vr 3 okt</a>
+            <a>Club</a>
+            <hr>
+        </li>
+        <li>
+            <a>Raving Charlie</a>
+            <a>vr 17 okt</a>
+            <a>Club</a>
+            <hr>
+        </li>
+        <li>
+            <a>Nyege Nyege 10 years</a>
+            <a>zo 26 okt</a>
+            <a>Club</a>
+            <hr>
+        </li>
+        <li>
+            <a>Lord of the lost</a>
+            <a>do 09 apr</a>
+            <a>Concert</a>
+            <hr>
+        </li>
+    </ul>
+			<h5>Highlights</h5>
+			<ul>
+				<li>
+    				<img src="images/ADE2025.jpg" alt="afbeelding dansende mensen ade">
+    				<a>
+    				    <h3>ADE 2025</h3>
+    				</a>
+    				<p>Zoals elk jaar staat Melkweg weer 5 dagen lang volledig op de kop tijdens Amsterdam Dance Event met een bomvol programma. Op...</p>
+    				<img src="images/pijltje.svg" alt="pijltje">
 				</li>
 				<li>
 					<a>
 					<img src="images/burstcity.jpg" alt="afbeelding logo burstcity">
 					<h4>za 4 sep</h4>
-					<h3>Burst city</h3>
+					<h6>Burst city</h6>
 					</a>
 				</li>
 				<li>
 					<a>
 					<img src="images/ArtyParty.png" alt="afbeelding logo photography graduates 2025">
 					<h4>ma 22 sep</h4>
-					<h3>Opening: Arty Party: photography graduates 2025</h3>
+					<h6>Opening: Arty Party: photography graduates 2025</h6>
 					</a>
 				</li>
 			</ul>
 		</section>
-		<section>
-			<hr>
+		<section class="agenda">
 			<a>
-				<h2>agenda</h2>
+				<h3>agenda</h3>
 			</a>
-			<img src=".jpg" alt="pijltje">
-			<hr>
+			<img src="images/pijltje.svg" alt="pijltje">
+		</section>
+		<section>
 			<img src="images/young-creatives-header.png" alt="afbeelding twee creatieve meiden">
-			<h2>Young Creatives</h2>
+			<h3>Young Creatives</h3>
 			<p>Melkweg biedt je de mogelijkheid je te ontwikkelen als maker, artiest of ondernemer en je weg te vinden in de Nederlandse kunst- en cultuursector. Het maakt niet uit of je nu net begint of al enige tijd meegaat, je op zoek bent naar nieuwe inspiratie of een nieuw netwerk, we bieden het allemaal! Dat doen we door middel van projecten, workshops, rondleidingen, masterclasses, trainingstrajecten en evenementen. Of we bieden je een podium, zodat jij ons kunt betoveren met je talenten.</p>
 			<a>
 				<p>Lees meer</p>

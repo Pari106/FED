@@ -61,6 +61,12 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   -Ik was positief verrast hoe goed ik door de website kan navigeren met alleen de tab en enter toets, dus dit vind ik erg goed aan de website.
   -Je kan in de website zelf op een pauze knop drukken zodat de animaties (in het logo en op de achtergrond van de artiesten selectie) niet bewegen en de website wel nog goed functioneert.
   -Er worden geen ingewikkelde kleuren gebruikt waardoor het voor kleurenblinde mensen geen probleem is om door de website heen te gaan.
+  WCAG checklist resultaten:
+  <img src="/readme-images/checklist-1.HEIC" alt="foto WCAG checklist">
+  <img src="/readme-images/checklist-2.HEIC" alt="foto WCAG checklist">
+  <img src="/readme-images/checklist-3.HEIC" alt="foto WCAG checklist">
+  <img src="/readme-images/checklist-4.HEIC" alt="foto WCAG checklist">
+  <img src="/readme-images/checklist-5.HEIC" alt="foto WCAG checklist">
 
 </details>
 
