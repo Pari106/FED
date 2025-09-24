@@ -1,9 +1,21 @@
 // JavaScript Document
 console.log("hi");
-// Selecteer de knoppen en de lijst
-const justAnnouncedButton = document.getElementById('just-announced');
-const nextUpButton = document.getElementById('next-up');
-const eventList = document.getElementById('event-list');
+// Selecteer de knoppen en de lijst via hun positie
+const programmaSectie = document.querySelector('main section:nth-of-type(2)');
+const justAnnouncedButton = programmaSectie.querySelector('ul:first-of-type li:first-of-type button');
+const nextUpButton = programmaSectie.querySelector('ul:first-of-type li:nth-of-type(2) button');
+const eventList = programmaSectie.querySelector('ul:nth-of-type(2)');
+
+// Selecteer alle knoppen in de button-list
+const buttons = programmaSectie.querySelectorAll('.button-list button');
+
+// Functie om de actieve knop te markeren
+function setActiveButton(activeButton) {
+    buttons.forEach(button => {
+        button.classList.remove('active-button');
+    });
+    activeButton.classList.add('active-button');
+}
 
 // Data voor de 'Just announced' evenementen
 const justAnnouncedEvents = [
@@ -17,12 +29,12 @@ const justAnnouncedEvents = [
 
 // Data voor de 'Next up' evenementen
 const nextUpEvents = [
-    { name: 'Arty Party: Photography Graduates 2025', date: 'za 13 sep', time: '11:00', type: 'Expositie' },
     { name: '80`s Verantwoord', date: 'vr 19 sep', time: '19:00', type: 'Club' },
     { name: 'Just for Kicks (2005)', date: 'vr 19 sep', time: '19:00', type: 'Film' },
     { name: 'East Africa Conekt', date: 'vr 19 sep', time: '22:00', type: 'Club' },
     { name: 'No name', date: 'vr 19 sep', time: '23:59', type: 'Club' },
-    { name: 'Miyazaki: Spirit of Nature (2024)', date: 'za 20 sep', time: '17:00', type: 'Film' }
+    { name: 'Miyazaki: Spirit of Nature (2024)', date: 'za 20 sep', time: '17:00', type: 'Film' },
+    { name: 'Rowwen Héze', date: 'zo 21 sep', time: '19:00', type: 'Concert' },
 ];
 
 // Functie om de lijst te renderen
@@ -38,13 +50,14 @@ function renderEvents(events) {
         const timeHTML = event.time ? `<a class="time">${event.time}</a>` : '';
         const typeHTML = event.type ? `<a class="type">${event.type}</a>` : '';
 
+        // Hier moet je de classes ook verwijderen uit de HTML-string!
         listItem.innerHTML = `
-            <div class="event-details-top">
-                <a href="#" class="name">${event.name}</a>
+            <div>
+                <a>${event.name}</a>
                 ${typeHTML}
             </div>
-            <div class="event-details-bottom">
-                <a class="date">${event.date}</a>
+            <div>
+                <a>${event.date}</a>
                 ${timeHTML}
             </div>
             <hr>
@@ -56,15 +69,18 @@ function renderEvents(events) {
 
 // Event listener voor de 'Just announced' knop
 justAnnouncedButton.addEventListener('click', () => {
+    setActiveButton(justAnnouncedButton);
     renderEvents(justAnnouncedEvents);
 });
 
 // Event listener voor de 'Next up' knop
 nextUpButton.addEventListener('click', () => {
+    setActiveButton(nextUpButton);
     renderEvents(nextUpEvents);
 });
 
 // Zorg dat de pagina bij het laden de 'Just announced' evenementen toont
 document.addEventListener('DOMContentLoaded', () => {
+    setActiveButton(justAnnouncedButton);
     renderEvents(justAnnouncedEvents);
 });

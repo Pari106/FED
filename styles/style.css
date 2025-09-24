@@ -1,104 +1,129 @@
 /**************/
 /* CSS REMEDY */
 /**************/
-*, *::after, *::before {
-  box-sizing:border-box;  
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
 }
+
+body {
+    margin: 0;
+    /* Gebruik de custom property voor de achtergrondkleur */
+    background-color: var(--color-background);
+    /* Gebruik de custom property voor de tekstkleur */
+    color: var(--color-text);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
 
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
-    /* startje */
-    --color-text:#111;
-    --color-background:#eee;
+    /* Kleuren voor dark/light mode */
+    --color-text: #111;
+    --color-white-text: #ffffff;
+    --color-background: #ffffff;
+    --color-border: #000;
+    --color-border-subtle: #b5b0b0;
+    --color-event: #757575;
+
+    /* Lettertypes */
+    --font-family-calibre: "Calibre-Regular", Helvetica, Arial, sans-serif;
+    --font-family-roboto: "Roboto", sans-serif;
+    --font-family-melkweg: "melkweg-regular", sans-serif;
 }
 
-/****************/
-/* JOUW STYLING */
-/****************/
+
+/**********************/
+/* LETTERTYPES LADEN */
+/**********************/
 @import url(https://db.onlinewebfonts.com/c/fd811cbfe623f3e2be52b981f67a2102?family=Calibre-Regular);
 
 @font-face {
     font-family: "Calibre-Regular";
     src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot");
     src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.svg#Calibre-Regular")format("svg");
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.svg#Calibre-Regular")format("svg");
 }
 
+@font-face {
+    font-family: 'melkweg-regular';
+    src: url('../fonts/melkweg-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "calibre-medium";
+    src: url(".../fonts/calibre-medium.woff2") format('woff2');
+}
+
+/*****************/
+/* BASISELEMENTEN */
+/*****************/
+
 h1 {
-    font-family: "Calibre-Regular";
+    font-family: var(--font-family-calibre);
     text-transform: uppercase;
     font-weight: 400;
     font-size: 1.875rem;
+    margin-top: 0;
 }
 
 h2 {
-  font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  font-style: normal;
-  margin-top: 0;
-  text-transform: uppercase;
-}
-
-/* Stijl de algemene h3s */
-h3 {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-size: 3.5rem;
-    line-height: 1.2;
-    padding: .75rem 0 .25rem;
+    font-family: var(--font-family-melkweg);
     font-weight: 400;
-    text-transform: uppercase;
+    font-size: 1.125rem;
+    line-height: 1.35;
     margin: 0;
+    color: var(--color-white-text);
 }
 
-/* Stijl de eerste h3 in de programma-sectie */
-.programma-sectie > h3 {
-    margin: 0rem;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 1.2;
-    padding: .75rem 0 .25rem;
+h3 {
+    font-family: var(--font-family-melkweg);
+    margin-top: 0;
     font-weight: 400;
-    text-transform: uppercase;
-}
-
-section h5 ~ ul h4 {
-    padding: 0.5rem 0rem 0rem;
-}
-
-section.programma-sectie h6 {
-    padding-bottom: 2rem;
+    font-size: 3.5rem;
+    line-height: .8;
+    margin-bottom: 2rem;
 }
 
 h4 {
-    font-family: "Roboto", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  font-style: normal;
-  margin: 0;
-  text-transform: uppercase;
-}
-
-h5 {
-    font-family: "Calibre-Regular", Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-calibre);
     margin-top: 0;
-    font-weight: 700;
+    font-weight: bold;
     font-size: .875rem;
     line-height: 1;
     text-transform: uppercase;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid #000
+}
+
+/* Verwijder de margin en padding van de h4's die tijd-tags bevatten */
+main > section > ul > li > a > h4 {
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h5 {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-top: 0;
+    color: var(--color-white-text);
 }
 
 h6 {
-    font-family: "Calibre-Regular", Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-calibre);
     margin-top: 0;
     font-weight: 400;
     font-size: 1.75rem;
@@ -108,7 +133,7 @@ h6 {
 }
 
 p {
-    font-family: "Calibre-Regular", Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-calibre);
     font-weight: 400;
     font-size: 1.125rem;
     line-height: 1.35;
@@ -116,56 +141,94 @@ p {
 }
 
 main a {
-    font-family: "Calibre-Regular", Helvetica, Arial, sans-serif;
+    font-family: var(--font-family-melkweg);
     font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 1.35;
-    overflow: hidden;
+    text-decoration: none;
+    font-size: .875rem;
     line-height: 1;
     text-transform: uppercase;
+    /* Gebruik de custom property voor de tekstkleur van links */
+    color: var(--color-text);
 }
 
 main {
+    /* Je bestaande stijlen */
     margin-right: auto;
     margin-left: auto;
-
+    padding-bottom: 5rem; /* Pas deze waarde aan totdat er genoeg ruimte is */
 }
 
-ul:has(button) {
+ul {
     list-style-type: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0;
     padding: 0;
-    border-bottom: 1px solid #000;
+    margin: 0;
 }
 
-ul:has(button) li button {
-    text-transform: uppercase;
-    background-color: #fff;
+section:first-of-type {
+    background-image: url('../images/achtergrond.jpg');
+}
+
+button {
+    /* Gebruik de custom property voor de achtergrondkleur */
+    background-color: var(--color-background);
     border: none;
-    color: #000;
+    /* Gebruik de custom property voor de tekstkleur */
+    color: var(--color-text);
+    text-transform: uppercase;
     padding: 0 0 1rem;
     text-decoration: none;
 }
 
-button:first-of-type {
-    margin-right: 1.5rem;
-    display: flex;
-    justify-content: center; /* Om de woorden horizontaal te centreren */
-    align-items: center; /* Om de woorden verticaal te centreren */
-    gap: 5px; /* Voegt een kleine ruimte toe tussen de woorden */
-    white-space: nowrap;
+/* Nieuwe stijl voor actieve knop */
+.active-button {
+    color: var(--color-text);
+    /* Zwart voor actieve knop */
 }
 
-ul{
-    list-style-type: none;
-    padding: 0;
+/* Stijl voor niet-actieve knoppen */
+.button-list button {
+    color: var(--color-event);
+    /* Grijs voor inactieve knop */
 }
 
-.programma-sectie {
-    padding: 0.5rem;
+/* Deze regel overschrijft de bovenstaande, waardoor de actieve knop zwart wordt */
+.button-list .active-button {
+    color: var(--color-text);
+}
+
+/* Stijl alle time tags uniform */
+time {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+    color: var(--color-white-text);
+}
+
+/*********************/
+/* COMPONENTEN & LAYOUT */
+/*********************/
+
+/* Parallax-effect voor de eerste sectie */
+section:first-of-type {
+    background-image: url('../images/achtergrond.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    /* De animatie die we zometeen definiëren */
+    animation: parallax linear;
+    animation-timeline: scroll();
+}
+
+@keyframes parallax {
+    from {
+        background-position: bottom 0px center;
+    }
+
+    to {
+        background-position: bottom -1000px center;
+    }
 }
 
 .grid-list {
@@ -180,7 +243,6 @@ ul{
 .grid-list li:nth-child(10) {
     display: block;
     grid-column: 1 / span 2;
-    display: block;
     width: 50%;
     margin: 2rem auto;
 }
@@ -189,9 +251,8 @@ ul{
 .grid-list li:nth-child(5),
 .grid-list li:nth-child(8) {
     flex-shrink: 1;
-    width: var(--grid-item-width, 50%);
-    padding: 0.5rem;
     width: 100%;
+    padding: 0.5rem;
 }
 
 .grid-list li:nth-child(3),
@@ -199,9 +260,8 @@ ul{
 .grid-list li:nth-child(9) {
     margin-top: 3.75rem;
     flex-shrink: 1;
-    width: var(--grid-item-width, 50%);
-    padding: 0.5rem;
     width: 100%;
+    padding: 0.5rem;
 }
 
 img {
@@ -210,84 +270,545 @@ img {
     display: block;
 }
 
+section:last-of-type>img:first-of-type {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1.7777777778;
+    margin-bottom: 1rem;
+    margin-top: 1.2rem;
+}
+
+ul:has(button) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    /* Gebruik de custom property voor de grens */
+    border-bottom: 1px solid var(--color-border);
+}
+
+ul:has(button) li button:first-of-type {
+    margin-right: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+main section:nth-of-type(2) ul:nth-of-type(3) li {
+    margin-bottom: 1.5rem;
+}
+
 /* Stijlen voor de algemene evenementenlijst */
-#event-list li {
+main section:nth-of-type(2)>ul:nth-of-type(2)>li {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-start;
     position: relative;
-    padding: 1rem 0;
-    line-height: 1; /* Zorg dat er geen extra ruimte is tussen de regels */
-    border-bottom: 0.5px solid #454545;
+    padding: 0.8rem 0;
+    line-height: 1;
+    border-bottom: 0.5px solid var(--color-border-subtle);
 }
 
 /* De bovenste div met naam en type */
-.event-details-top {
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:first-of-type {
     display: flex;
-    flex-direction: column; /* Stapel de items verticaal op */
-    align-items: flex-start; /* Lijn ze links uit */
-    flex-grow: 1; /* Laat dit element de overgebleven ruimte innemen */
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
 }
 
 /* De onderste div met datum en tijd */
-.event-details-bottom {
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:nth-of-type(2) {
     display: flex;
-    flex-direction: column; /* Stapel de items verticaal op */
-    align-items: flex-end; /* Lijn ze rechts uit */
+    flex-direction: column;
+    align-items: flex-end;
     text-align: right;
-    width: 30%; /* Geef een vaste breedte */
+    width: 30%;
 }
 
-/* Verwijder de "order"-eigenschappen, die zijn niet meer nodig */
-.event-details-bottom .name {
-    margin-bottom: 0.25rem;
-}
 
-/* Specifieke styling voor de a-tags */
-#event-list a {
-    text-decoration: none;
-    color: #000;
-    font-family: "Calibre-Regular", sans-serif;
-    text-transform: uppercase;
-    font-size: 1.125rem;
-}
+/* Specifieke stijlen */
 
-.date, .time {
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:first-of-type>a:first-of-type {
+    font-family: var(--font-family-calibre);
     font-size: 1rem;
-}
-
-.name {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-}
-
-/* Voeg deze stijl toe aan je bestaande CSS-bestand */
-section.agenda {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #000;
-    border-top: 1px solid #000;
-    margin: 1rem 0 1rem 0;
-    padding: 0.5rem 0 0.5rem 0;
-}
-
-/* De h3-tag in de agenda-sectie */
-section.agenda h3 {
-    margin: 0;
-}
-
-/* De a-tag in de agenda-sectie */
-section.agenda a {
-    text-decoration: none;
-    color: inherit;
+    line-height: 1.2;
     display: block;
+    margin: 0 auto .5rem 0;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
-/* De svg van het pijltje */
-section.agenda img {
-    width: 3rem; /* Maak het pijltje groter, pas de waarde aan naar wens */
-    height: auto;
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:first-of-type>a:nth-of-type(2) {
+    font-family: var(--font-family-calibre);
+    font-size: .875rem;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--color-event);
+    text-transform: uppercase;
+}
+
+main section:nth-of-type(2)>ul:nth-of-type(2)>li time {
+    font-size: 1rem;
+    line-height: 1;
+    font-family: var(--font-family-tertiary);
+}
+
+
+section h5~ul h4 {
+    padding: 0.5rem 0rem 0rem;
+}
+
+
+/* STIJLEN VOOR DE NIEUWE OPMERKINGEN VAN DE GEBRUIKER */
+
+/* ADE 2025 */
+main>section>ul>li:first-child>a>h3 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: .75rem 0 .25rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+/* Tijd tags Burst city en Arty Party */
+main>section>ul>li>a>h4>time {
+    font-family: var(--font-family-melkweg);
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1;
+    display: inline-block;
+    margin-bottom: 0;
+    color: var(--color-text);
+}
+
+
+
+/* Young Creatives */
+main>section:nth-of-type(2)>h3 {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: 2.625rem;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+}
+
+section:last-of-type a>p {
+    margin-top: 1.5rem;
+    text-transform: none;
+}
+
+a:active{
+    text-decoration: underline;
+}
+
+/* Selecteer de h4 die direct na de tweede <ul> in de tweede section staat */
+main section:nth-of-type(2)>ul:nth-of-type(2)+h4 {
+    font-family: var(--font-family-calibre);
+    margin-top: 3rem;
+    font-weight: bold;
+    font-size: .875rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 48; 
+}
+
+header {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    pointer-events: none;
+    z-index: 75;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.25rem ;
+    margin-top: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: .5rem 1rem;
+    background-color: var(--color-border);
+    z-index: 100; /* Zorg ervoor dat de footer altijd boven andere elementen staat */
+}
+
+footer nav {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between; /* Plaats het logo links en de button-groep rechts */
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+footer nav > div {
+    display: flex; /* Zorgt dat de buttons naast elkaar staan */
+    align-items: center;
+}
+
+footer nav img {
+    filter: invert(100%);
+    height: 1.1rem;
+    width: auto;
+}
+
+footer nav button {
+    background: none;
+    border: none;
+    padding: 0.5rem; /* Zorg voor wat ruimte rond de knoppen, maar niet tussen */
+}
+
+/* Algemene stijl voor de afbeeldingen in de knoppen */
+footer nav button img {
+    filter: invert(100%);
+    height: 1.5rem; /* Standaardgrootte voor alle knopafbeeldingen */
+}
+
+/* Specifieke stijl voor de hamburger-menu afbeelding */
+footer nav button:last-of-type img {
+    height: 1.1rem; /* Maakt de hamburger-menu afbeelding kleiner */
+}
+
+section:nth-of-type(2) {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    z-index: 65;
+    position: relative;
+    width: 100%;
+    padding-top: 2.5rem;
+}
+
+section:nth-of-type(3) {
+    margin: 0;
+    padding: 1.2rem 0;
+    padding-left: 0.4rem;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+section:nth-of-type(4) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.2rem;
+}
+
+section:nth-of-type(3) h3 {
+    margin: 0;
+    margin-left: 0.2em;
+}
+
+/* Stijlen voor het pijltje na de ADE-tekst */
+section:nth-of-type(2) > ul:nth-of-type(3) li:first-child p::after {
+    content: "";
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    margin-left: 0.5em;
+    background: url('../images/pijltje.svg') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/* Stijlen voor het pijltje na de h3 in de agenda sectie */
+section:nth-of-type(3) a>h3::after {
+    content: "";
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 1.6em;
+    background: url('../images/pijltje.svg') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/* Styling voor het pijltje na de 'Lees meer' alinea */
+section:last-of-type a>p::after {
+    content: "";
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 0.5em;
+    background: url('../images/pijltje.svg') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/*****************/
+/* LOGO STYLING */
+/*****************/
+
+/* Container voor de hele "MELKWEG" tekst */
+.melkweg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%; /* Maak de container even breed als het scherm */
+    max-width: 500px; /* Geef de container een maximale breedte */
+    margin: 1.5rem auto;
+}
+
+.letter-box {
+    position: relative;
+    width: 100px; /* De breedte van de letters is nu gebaseerd op de max-width van de container */
+    aspect-ratio: 1 / 1;
+    margin: 0 3px;
+    overflow: hidden;
+}
+
+/* Basisstijl voor alle lijnen van de letters */
+.letter-box span {
+    background-color: black;
+    position: absolute;
+}
+
+/* Animaties (keyframes) */
+@keyframes slideDown {
+  0% {
+    transform: translateY(0); /* Startpositie: links */
+  }
+  100% {
+    transform: translateY(39px); /* Eindpositie: 50px naar rechts */
+  }
+}
+
+@keyframes slideLeft {
+    0%{
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(39px);
+    }
+}
+
+@keyframes rotateLetter {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(90deg); /* Draait een kwartslag */
+    }
+}
+
+/* Stijl voor de letter M */
+.m-letter {
+    animation: rotateLetter 1s;
+    animation-delay: 0.5s; /* Wacht tot de slide animatie klaar is */
+}
+
+.m-letter .line-1 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.m-letter .line-2 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+.m-letter .line-3 {
+    width: 100%;
+    height: 15%;
+    top: 0;
+    left: 0;
+    animation: slideDown 0.5s forwards;
+
+}
+
+.m-letter .line-4 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 43%;
+}
+
+/* Stijl voor de letter E */
+.e-letter .line-1 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.e-letter .line-2 {
+    width: 100%;
+    height: 15%;
+    top: 0;
+    left: 0;
+}
+
+.e-letter .line-3 {
+    width: 100%;
+    height: 15%;
+    top: 43%;
+    left: 0;
+}
+
+.e-letter .line-4 {
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+}
+
+/* Stijl voor de letter L */
+.l-letter .line-1 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.l-letter .line-2 {
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+}
+
+/* Stijl voor de letter K */
+.k-letter .line-1 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.k-letter .line-2 {
+    width: 15%;
+    height: 120%;
+    top: 60%;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-67deg);
+}
+
+.k-letter .line-3 {
+    width: 15%;
+    height: 120%;
+    top: 15%;
+    right: -10%;
+    transform-origin: top right;
+    transform: rotate(67deg);
+}
+
+/* Stijl voor de letter W */
+.w-letter .line-1 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.w-letter .line-2 {
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+}
+
+.w-letter .line-3 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 43%;
+}
+
+.w-letter .line-4 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+/* Stijl voor de letter E (tweede E) */
+.e-letter-2 .line-1 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.e-letter-2 .line-2 {
+    width: 100%;
+    height: 15%;
+    top: 0;
+    left: 0;
+}
+
+.e-letter-2 .line-3 {
+    width: 100%;
+    height: 15%;
+    top: 43%;
+    left: 0;
+}
+
+.e-letter-2 .line-4 {
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+}
+
+/* Stijl voor de letter G */
+.g-letter .line-1 {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.g-letter .line-2 {
+    width: 100%;
+    height: 15%;
+    top: 0;
+    right: 0;
+}
+
+.g-letter .line-3 {
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+}
+
+.g-letter .line-4 {
+    width: 15%;
+    height: 50%;
+    bottom: 0;
+    left: 85%;
+}
+
+.g-letter .line-5 {
+    width: 60%;
+    height: 15%;
+    bottom: 40%;
+    left: 40%;
 }
