@@ -1,0 +1,429 @@
+/*********************************/
+/* 1. CSS REMEDY & GLOBALE STIJLEN */
+/*********************************/
+
+/* Reset: Box-sizing voor consistentere lay-outberekeningen */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+/* Basisstijlen voor de body, gebruikt Custom Properties voor thematisering */
+body {
+    margin: 0;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+
+/* Reset voor lijsten */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Responsieve afbeeldingen */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Basisuitlijning voor alle secties */
+section {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+/* Toegankelijkheid: Focus- en Hoverstijlen voor links en knoppen */
+a:active, 
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus,
+button:focus {
+    text-decoration: underline;
+    outline: 2px solid var(--color-accent-bg); /* Gebruik een opvallende accentkleur voor focusring */
+    outline-offset: 2px;
+}
+
+
+/*********************************/
+/* 2. KLEUR THEMATISERING (CUSTOM PROPERTIES) */
+/*********************************/
+
+/* ==================================== */
+/* 2.1 LIGHT MODE (STANDAARD :root) */
+/* ==================================== */
+:root {
+    /* Fonts (Hier gedefinieerd voor centrale aanpassing) */
+    --font-family-calibre: "Calibre-Regular", Helvetica, Arial, sans-serif;
+    --font-family-roboto: "Roboto", sans-serif;
+    --font-family-melkweg: "melkweg-regular", sans-serif;
+    --font-family-calibre-light: "calibre-light", Helvetica, Arial, sans-serif;
+
+    /* Primaire Kleuren - Light Mode Defaults */
+    --color-text: #000;              /* Zwart (Hoofdtekst) */
+    --color-background: #ffffff;     /* Wit (Hoofdachtergrond) */
+    --color-border: #000;            /* Zwart (Lijnen/Donkere achtergrond) */
+    --color-event: #757575;          /* Secundaire/Grijze tekst */
+    --color-white-text: #ffffff;     /* Tekst die wit moet zijn op donkere elementen */
+
+    /* Accent & Kaart Kleuren */
+    --color-border-subtle: #bdbdbd;  /* Lichtgrijs voor dunne lijnen */
+    --color-card-bg: #ddd;           /* Achtergrond voor de 'Pop' kaart */
+    --color-accent-bg: #d6fe51;      /* Achtergrond van de 'Tickets' knop (Geel/Groen) */
+    --color-accent-text: #000;       /* Tekstkleur op de accent-achtergrond */
+    --pop-background: #ddd;
+
+    /* Theme Switcher Knoppen (Gebruikt voor de knoppen zelf) */
+    --color-button-light: #ffffff;   
+    --color-button-dark: #000000;    
+    --color-button-club: #ff4081;    
+    --color-switcher-text: #000;
+}
+
+
+/* =========================================== */
+/* 2.2 DARK MODE (Systeemvoorkeur & Manuele Override) */
+/* =========================================== */
+
+/* A. Systeemvoorkeur: Past automatisch aan als het systeem op 'Dark' staat */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-text: #ffffff;
+        --color-background: #111;
+        --color-border: #444;
+        --color-event: #999;
+        --color-border-subtle: #444;
+        --color-card-bg: #333;
+        --color-accent-bg: #4caf50;
+        --color-accent-text: #ffffff;
+        --pop-background: #4824bf;
+    }
+}
+
+/* B. Manuele Override: Wordt geladen via de knop in JS (hogere specificiteit) */
+body.dark-mode {
+    --color-text: #ffffff;
+    --color-background: #111;
+    --color-border: #444;
+    --color-event: #999;
+    --color-border-subtle: #444;
+    --color-card-bg: #333;
+    --color-accent-bg: #4caf50;
+    --color-accent-text: #ffffff;
+    --color-switcher-text: #ffffff; 
+    --pop-background: #19006b;
+}
+
+
+/* ==================================== */
+/* 2.3 CLUB MODE (Manuele Override) */
+/* ==================================== */
+body.club-mode {
+    --color-text: #ffffff;      
+    --color-background: #5ADEE0;      
+    --color-border: #ff4081;          
+    --color-event: #d9ff66;           
+    --color-border-subtle: #000033;
+    --color-card-bg: #000055;
+    --color-accent-bg: #ff4081;       
+    --color-accent-text: #ffffff;
+    --color-switcher-text: #ffffff; 
+    --pop-background: #4824bf;
+}
+
+
+/*********************************/
+/* 3. MEDIA (SVG/ICON) STYLING */
+/*********************************/
+
+/* Inverteert alle SVG's in het menu (wit op de donkere menu-achtergrond) */
+#fullscreen-menu img[src$=".svg"] {
+    filter: invert(1); 
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Inverteert SVG's in de hoofdsectie wanneer Dark/Club Mode actief is */
+body.dark-mode main img[src$=".svg"],
+body.club-mode main img[src$=".svg"],
+body.dark-mode main a img[src$=".svg"],
+body.club-mode main a img[src$=".svg"],
+/* Inclusief inline SVG elementen */
+body.dark-mode main svg,
+body.club-mode main svg {
+    filter: invert(1) !important;
+}
+
+
+/*********************************/
+/* 4. THEME SWITCHER COMPONENT */
+/*********************************/
+
+.theme-switcher {
+    display: flex;
+    gap: 15px;
+    padding: 20px 0;
+    list-style: none;
+    margin: 0;
+}
+
+/* Basisstijl voor de ronde knoppen (micro-interactie) */
+.theme-switcher li button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 2px solid transparent; 
+    cursor: pointer;
+    /* Verbergt de tekst (gebruik aria-label voor screenreaders) */
+    text-indent: -9999px; 
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+/* Kleuren van de knopjes m.b.v. ID's (moet in deze specifieke code behouden blijven) */
+#theme-light {
+    background-color: var(--color-button-light); 
+}
+
+#theme-club {
+    background-color: var(--color-button-club); 
+}
+
+/* Fix voor donkere knop zichtbaarheid op zwarte menu-achtergrond */
+#theme-dark {
+    background-color: var(--color-button-dark); 
+    border: 2px solid var(--color-white-text); 
+}
+
+/* Visuele feedback voor de actieve knop (state) */
+.theme-switcher li button.active-theme {
+    /* Gebruikt de thema-specifieke tekstkleur voor de rand */
+    border: 3px solid var(--color-text); 
+    /* Box shadow gebruikt de achtergrondkleur van het menu als extra highlight */
+    box-shadow: 0 0 0 2px var(--color-background); 
+}
+
+
+/**********************/
+/* 5. TYPOGRAFIE EN FONTS */
+/**********************/
+
+/* Externe imports van fonts */
+@import url(https://db.onlinewebfonts.com/c/fd811cbfe623f3e2be52b981f67a2102?family=Calibre-Regular);
+
+/* @font-face definities voor lokale fonts */
+@font-face {
+    font-family: "Calibre-Regular";
+    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot");
+    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot?#iefix") format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff2") format("woff2"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff") format("woff"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.ttf") format("truetype"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.svg#Calibre-Regular") format("svg");
+}
+
+@font-face {
+    font-family: 'melkweg-regular';
+    src: url('../fonts/melkweg-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'calibre-light';
+    src: url('../fonts/Calibre-Light.ttf') format('ttf');
+}
+
+/* Standaard paragraph stijl */
+p {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.35;
+    margin: 0;
+}
+
+
+/*********************************/
+/* 6. VASTE FOOTER COMPONENT */
+/*********************************/
+
+footer {
+    /* Positionering: Zorgt ervoor dat de footer altijd onderaan blijft staan */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Achtergrond is de 'donkere' themakleur (zwart/grijs/roze) */
+    background-color: var(--color-border);
+    padding: .5rem 1rem;
+    z-index: 1001;
+}
+
+footer nav {
+    /* Flexbox layout: Logo links, knoppen rechts */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+/* Groepering voor de zoek- en menuknoppen */
+footer nav > div {
+    display: flex;
+    align-items: center;
+}
+
+/* Logo in de footer wit maken */
+footer nav a > img {
+    filter: invert(100%); 
+    height: 1.1rem;
+    width: auto;
+}
+
+/* Stijl reset voor knoppen */
+footer nav button {
+    background: none;
+    border: none;
+    padding: 0.5rem;
+}
+
+/* Iconen in de knoppen wit maken */
+footer nav button img {
+    filter: invert(100%);
+    height: 1.5rem;
+}
+
+/* Hamburgermenu icoon is kleiner */
+footer nav button:last-of-type img {
+    height: 1.1rem;
+}
+
+
+/*********************************/
+/* 7. FULLSCREEN NAVIGATIE (OVERLAY) */
+/*********************************/
+
+#fullscreen-menu {
+    /* Positionering: Beslaat de hele viewport */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.25rem 3rem;
+
+    /* Standaard onzichtbaar en niet klikbaar */
+    visibility: hidden; 
+    opacity: 0; 
+    
+    /* Zachte overgang voor de micro-interactie */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; 
+}
+
+
+#fullscreen-menu.open {
+    /* Menu is zichtbaar als de JS class wordt toegevoegd */
+    visibility: visible;
+    opacity: 1; 
+}
+
+/* Algemene reset voor UL's in het menu */
+#fullscreen-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Algemene linkstijl in het menu */
+#fullscreen-menu nav a {
+    text-transform: none; 
+    text-decoration: none;
+    padding: 1rem 0;
+    color: var(--color-text);
+}
+
+
+/* === STIJLGROEP 1: HOOFDLINKS (Groter Font) === */
+#fullscreen-menu nav ul:first-of-type {
+    margin-bottom: 2rem; 
+}
+
+#fullscreen-menu nav ul:first-of-type li a {
+    font-family: var(--font-family-calibre);
+    font-size: 1.75rem; 
+    font-weight: 400;
+}
+
+
+/* === STIJLGROEP 2: SUBLINKS (Kleiner Font) === */
+#fullscreen-menu nav ul:nth-of-type(2) li a {
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--color-text);
+}
+
+
+/* === STIJLGROEP 3: SOCIAL MEDIA ICONEN === */
+#fullscreen-menu nav ul:nth-of-type(3) {
+    display: flex; 
+    gap: 1rem; 
+    margin-top: 2rem;
+}
+
+
+/* === STIJLGROEP 4: TAALKEUZE (NL/EN) === */
+#fullscreen-menu nav ul:nth-of-type(4) {
+    display: flex; 
+    gap: 1.2rem; 
+    margin-top: 0.5rem;
+}
+
+#fullscreen-menu nav ul:nth-of-type(4) li {
+    font-family: var(--font-family-calibre);
+    font-size: 1.1rem; 
+    text-transform: uppercase;
+}
+
+/* Visuele indicatie van de actieve taal */
+#fullscreen-menu nav ul:nth-of-type(4) li:first-of-type {
+    text-decoration: underline;
+}
+
+#fullscreen-menu nav ul:nth-of-type(4) li:nth-of-type(2) {
+    opacity: 50%;
+}
+
+
+/*********************************/
+/* 8. BEWEGINGSREDUCTIE (MEDIA QUERY) */
+/*********************************/
+
+/* Past animaties aan op basis van de systeemvoorkeur van de gebruiker */
+@media (prefers-reduced-motion: reduce) {
+    /* Schakelt alle specifieke animaties uit */
+    section:first-of-type {
+        animation: none; 
+        background-attachment: scroll;
+    }
+
+    .letter-box span, .m-letter{
+        animation: none; 
+    }
+
+    /* Verbergt de handmatige schakelknop wanneer de voorkeur al is ingesteld via het systeem */
+    #verminder-beweging {
+        display: none;
+    }
+}

@@ -62,11 +62,11 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   -Je kan in de website zelf op een pauze knop drukken zodat de animaties (in het logo en op de achtergrond van de artiesten selectie) niet bewegen en de website wel nog goed functioneert.
   -Er worden geen ingewikkelde kleuren gebruikt waardoor het voor kleurenblinde mensen geen probleem is om door de website heen te gaan.
   WCAG checklist resultaten:
-  <img src="/readme-images/checklist-1.HEIC" alt="foto WCAG checklist">
-  <img src="/readme-images/checklist-2.HEIC" alt="foto WCAG checklist">
-  <img src="/readme-images/checklist-3.HEIC" alt="foto WCAG checklist">
-  <img src="/readme-images/checklist-4.HEIC" alt="foto WCAG checklist">
-  <img src="/readme-images/checklist-5.HEIC" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/checklist-1.HEIC" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/checklist-2.HEIC" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/checklist-3.HEIC" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/checklist-4.HEIC" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/checklist-5.HEIC" alt="foto WCAG checklist">
 
 </details>
 
@@ -98,26 +98,14 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor 1<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
-
-
-  ### Agenda voor meeting
-  samen met je groepje opstellen
-
-  | student 1      | student 2          | student 3    | student 4        |
-  | ---            | ---                | ---          | ---              |
-  | dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-  | en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-  | ...            | ...                | ...          | ...              |
-
+Ik ben klaar met de html van mijn eerste pagina, ik heb alleen nog niet de html geschreven voor het logo dat ik wil animeren. Ik weet namelijk nog niet zeker hoe ik dit aan wil pakken dus hier kom ik later in het proces op terug.
+Ik heb de basis van de html van mijn tweede pagina al af. Ook heb ik al een paar kleine dingetjes in css gedaan zodat ik alvast een gevoel kreeg voor de website.
 
   ### Verslag van meeting
-  hier na afloop snel de uitkomsten van de meeting vastleggen
 
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
+  - Ik heb een goede start gemaakt
+  - Ik moet voor de verschillende soorten tekst zo veel mogelijk de verschillende h elementen gebruiken
+  - Als ik de laatste dingen van de tweede html pagina af heb kan ik beginnen aan de css
 
 </details>
 
@@ -131,27 +119,15 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor 2<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
-
-
-  ### Agenda voor meeting
-  samen met je groepje opstellen
-
-  | student 1      | student 2          | student 3    | student 4        |
-  | ---            | ---                | ---          | ---              |
-  | dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-  | en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-  | ...            | ...                | ...          | ...              |
-
+Ik ben al heel erg vooruit gekomen met mijn code, er staat voor mijn gevoel al een goede basis. Het begint al op de echte Melkweg website te lijken. Wel loop ik tegen een paar kleine dingen aan, zo kan ik bijvoorbeeld het melkweg font niet vinden en merk ik dat ze heel veel verschillende soorten tekstopmaak gebruiken. Ook lukt het mij niet om de Youtube videos er goed in te krijgen, dus moet ik even kijken wat ik hiermee ga doen.
 
   ### Verslag van meeting
-  hier na afloop snel de uitkomsten van de meeting vastleggen
 
-  - punt 1
-  - punt 2
-  - nog een punt
-- ...
-
+  - Ik heb het melkweg font gedownload!
+  - Ik moet meer gebruik maken van custom properties
+  - De YouTube videos zitten er wel correct in, ze worden geblokkeerd omdat ik het niet via GitHub open
+  - Ik moet niet onderschatten hoe veel ik nog moet doen, ik ga dit weekend de volledige css opmaak afmaken zodat ik aankomende week me volledig kan richten op de surface plane
+  - Ik moet opletten met het gebruiken van classes, ik kan bijna alle elementen wel selecteren met nth of type
 </details>
 
 
@@ -164,7 +140,14 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken na test in 9<sup>e</sup> werkgroep</summary>
 
   ### Bevindingen
-  Lijst met je bevindingen die in de test naar voren kwamen (geef ook aan wat er verbeterd is):
+  Er kwamen bij de validator geen foutmeldingen bij mij naar boven! hier was ik positief door verrast. Ook ging met de screenreader door de website erg soepel. Ik moet wel nog goed kijken dat ik de links en buttons een goede active state geef die duidelijk zijn en bij de website passen.
+
+    <img src="../basiswebsite/readme-images/checklist-1.HEIC" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/2checklist.jpeg" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/2checklist2" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/2checklist3" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/2checklist4" alt="foto WCAG checklist">
+  <img src="../basiswebsite/readme-images/2checklist5" alt="foto WCAG checklist">
 
 </details>
 
@@ -178,53 +161,12 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   <summary>uitwerken voor 3<sup>e</sup> voortgang</summary>
 
   ### Stand van zaken
-  hier dit ging goed & dit was lastig (neem ook screenshots op van delen van je website en code)
+Ik ben deze week vol gegaan voor de surface plane. Ik heb animaties, kleuren en allerlei andere dingen toegevoegd aan de website. Hij lijkt nu bijna identiek op de originele website, ik raak steeds in de war of ik nou op de echt site zit of die van mij. Ik heb wel mezelf teruggehouden op de logo animatie, ik wilde deze eerst helemaal namaken. Het is niet dat het mij niet lukt, maar meer dat ik niet genoeg tijd ervoor heb. 
 
-
-  ### Agenda voor meeting
-  samen met je groepje opstellen
-
-  | student 1      | student 2          | student 3    | student 4        |
-  | ---            | ---                | ---          | ---              |
-  | dit bespreken  | en dit             | en ik dit    | en dan ik dat    |
-  | en dat ook nog | dit als er tijd is | nog een punt | dit wil ik zeker |
-  | ...            | ...                | ...          | ...              |
-
-
-  ### Verslag van meeting
-  hier na afloop snel de uitkomsten van de meeting vastleggen
-
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
 
 </details>
 
 
-
-
-
-## Eindgesprek (week 5)
-
-<details>
-  <summary>uitwerken voor eindgesprek</summary>
-
-  ### Je uitkomst - karakteristiek screenshots:
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="uitomst opdracht 1">
-
-
-  ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatjes
-
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="top">
-
-
-  ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatjes
-
-  <img src="readme-images/dummy-plaatje.jpg" width="375px" alt="bummer">
-</details>
 
 
 
@@ -239,8 +181,12 @@ Nb. Door *open* toe te voegen aan een *details* element kun je deze standaard op
   Nb. ChatGpT en andere AI horen er ook bij.
   Nb. Vermeld de bronnen ook in je code.
 
-  1. bron 1
-  2. bron 2
-  3. ...
+  1. [bron 1](https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Text_styling/Styling_links)
+  2. https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+  3. https://css-tricks.com/snippets/css/complete-guide-grid/
+  4. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Basic_concepts_of_grid_layout
+  5. https://gemini.google.com/app
+  6. https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/span
+  7. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_selectors
 
 </details>

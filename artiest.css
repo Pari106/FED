@@ -1,0 +1,287 @@
+/*********************************/
+/* 1. LAYOUT & BASISSTRUCTUUR */
+/*********************************/
+
+/* Algemene instelling voor de padding onderaan de main content */
+main {
+    padding-bottom: 3rem; 
+}
+
+/* Algemene sectie padding */
+section {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+}
+
+/* --- Header & Eerste Sectie (Titel & Datum) --- */
+
+header {
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    padding-bottom: 0;
+}
+
+/* Afbeelding in de Header */
+header img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1.7777777778;
+}
+
+/* Eerste Sectie (direct onder de header) */
+section:first-of-type {
+    width: 100%;
+    padding-top: 2.25rem;
+    padding-bottom: 2.5rem;
+}
+
+/* De lijst met datum, tijd, zaal (flexbox layout) */
+main section:first-of-type ul {
+    display: flex;
+    align-items: center; 
+    gap: 1.5rem; 
+}
+
+
+/* --- Sectie 2 (Tickets & Tijden) --- */
+
+/* De ticketknop (opvallende accentkleur) */
+section:nth-of-type(2) a:first-of-type {
+    background: transparent;
+    width: 100%;
+    padding: 0.6em 0 0.6em;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #d6fe51;
+    color: #000;
+    border: 1px solid #d6fe51;
+    font-family: var(--font-family-melkweg);
+    font-size: 1.375rem;
+}
+
+/* Algemene stijlen voor de tijdenlijst (tweede ul in sectie 2) */
+main section:nth-of-type(2) ul:nth-of-type(2) {
+    margin: 0 0 .75rem;
+    margin-top: 2rem;
+    padding-top: .5rem;
+    white-space: none;
+    border-top: 1px solid #bdbdbd;
+}
+
+/* --- Sectie 3 & 4 (Tekst & Media) --- */
+
+section:nth-of-type(3) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: calc(1.5vw + 2rem) 1rem;
+}
+
+section:nth-of-type(4) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: calc(1.5vw + 2rem) 1rem;
+}
+
+/* Stijl voor de iframes in sectie 4 (Video/Kaart) */
+iframe {
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 20%;
+}
+
+iframe:first-of-type {
+    height: 12em;
+}
+
+iframe:nth-of-type(3) {
+    height: 100%;
+}
+
+/* --- Sectie 5 (Onderdeel van Pop) --- */
+
+section:nth-of-type(5) a {
+    position: relative; 
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+    background-color: var(--pop-background);
+    margin-bottom: 8em;
+}
+
+/* Pijltje icoon in de kaart */
+section:nth-of-type(5) a > img:nth-of-type(2) {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+section:nth-of-type(5) a div {
+    position: relative;
+    display: block;
+    flex: 1 1;
+    padding-top: .75rem;
+}
+
+/* --- Laatste Sectie (Melkweg Tipt) --- */
+
+section:last-of-type{
+    background-color: var(--color-border);
+    margin-right: auto;
+    margin-left: auto;
+    padding:  1rem;
+}
+
+
+/*********************************/
+/* 2. TYPOGRAFIE BASISELEMENTEN */
+/*********************************/
+
+/* H1 (Hoofdtitel van de Artiest) */
+h1 {
+    font-family: var(--font-family-calibre-light);
+    margin: 0;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: .9;
+    text-transform: uppercase;
+}
+
+/* H2 (Zaalinformatie) */
+h2 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    line-height: 1.35;
+    margin: 0 0 .5rem;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+/* H3 (Support Act) */
+h3 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    line-height: 1.2;
+    max-width: 36em;
+    margin: 1.25rem 0 0;
+    color: var(--color-event);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* H4 (Tijdschema & Melkweg Tipt datum) */
+h4 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    line-height: 1.2;
+    max-width: 36em;
+    margin: 0.5rem 0 0 0;
+    color: var(--color-event);
+    font-weight: 400;
+}
+
+/* H5 (Aankondiging) */
+h5 {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1;
+    margin-top: .75rem;
+    color: var(--color-event);
+}
+
+/* H6 (Melkweg Tipt Titel) */
+h6 {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: 2.125rem;
+    line-height: 1.35;
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    color: var(--color-white-text);
+}
+
+/* Algemene stijlen voor de <time> tag */
+time {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: 1.125rem;
+    color: var(--color-text);
+}
+
+
+/* --- Specifieke Typografie Stijlen (Contextueel) --- */
+
+/* H4 voor de 'Support' titel in de eerste sectie */
+section:first-of-type h4 {
+    margin: 1.25rem 0 0;
+}
+
+/* Paragraaf met de prijs (tweede li in de eerste ul van sectie 2) */
+main > section:nth-of-type(2) ul:nth-of-type(1) > li:nth-of-type(2) > p {
+    font-family: var(--font-family-calibre-light);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* H5 in de laatste sectie (Melkweg tipt - header) */
+body > main > section:nth-of-type(6) > h5 {
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--color-white-text);
+}
+
+/* Kleur van de tijd in de laatste sectie (Melkweg tipt) */
+section:last-of-type h4 time {
+    color: var(--color-white-text);
+}
+
+/* Prijzen en tijden in de tijdschema lijst (tweede <ul> in sectie 2) */
+main section:nth-of-type(2) ul:nth-of-type(2) > li,
+main section:nth-of-type(2) ul:nth-of-type(2) > li time {
+    font-family: var(--font-family-calibre-light);
+    color: var(--color-text);
+    font-size: 1rem;
+    margin-bottom: 0.4em;
+}
+
+/* H5 titel in de vijfde sectie (Onderdeel van Pop) */
+section:nth-of-type(5) a div h5 {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: .9;
+    margin: 0;
+    background-color: var(--pop-background);
+}
+
+/* Subtitel/Paragraaf in de vijfde sectie (Onderdeel van Pop) */
+section:nth-of-type(5) a div p {
+    margin: 0;
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: .75rem;
+    line-height: 1;
+    display: block;
+    margin-bottom: .5rem;
+    font-size: .875rem;
+}
