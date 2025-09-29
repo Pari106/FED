@@ -1,300 +1,83 @@
-/**************/
-/* CSS REMEDY */
-/**************/
-*,
-*::after,
-*::before {
-    box-sizing: border-box;
-}
+/*********************************/
+/* 1. LAYOUT & BASISSTRUCTUUR */
+/*********************************/
 
-body {
-    margin: 0;
-    /* Gebruik de custom property voor de achtergrondkleur */
-    background-color: var(--color-background);
-    /* Gebruik de custom property voor de tekstkleur */
-    color: var(--color-text);
-}
-
-
-/*********************/
-/* CUSTOM PROPERTIES */
-/*********************/
-:root {
-    /* Kleuren voor dark/light mode */
-    --color-text: #111;
-    --color-white-text: #ffffff;
-    --color-background: #ffffff;
-    --color-border: #000;
-    --color-border-subtle: #b5b0b0;
-    --color-event: #757575;
-
-    /* Lettertypes */
-    --font-family-calibre: "Calibre-Regular", Helvetica, Arial, sans-serif;
-    --font-family-roboto: "Roboto", sans-serif;
-    --font-family-melkweg: "melkweg-regular", sans-serif;
-    --font-family-calibre-light: "calibre-light", Helvetica, Arial, sans-serif;
-}
-
-/**********************/
-/* LETTERTYPES LADEN */
-/**********************/
-@import url(https://db.onlinewebfonts.com/c/fd811cbfe623f3e2be52b981f67a2102?family=Calibre-Regular);
-
-@font-face {
-    font-family: "Calibre-Regular";
-    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot");
-    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot?#iefix")format("embedded-opentype"),
-        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff2")format("woff2"),
-        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff")format("woff"),
-        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.ttf")format("truetype"),
-        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.svg#Calibre-Regular")format("svg");
-}
-
-@font-face {
-    font-family: 'melkweg-regular';
-    src: url('../fonts/melkweg-regular.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'calibre-light';
-    src: url('../fonts/Calibre-Light.ttf') format('ttf');
-}
-
-/*****************/
-/* BASISELEMENTEN */
-/*****************/
-
-/* Stijlen voor de footer van de artiestenpagina */
-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    
-    background-color: var(--color-border);
-    padding: .5rem 1rem;
-    z-index: 100;
-}
-
-/* Zorgt voor de benodigde ruimte aan de onderkant van de pagina */
+/* Algemene instelling voor de padding onderaan de main content */
 main {
     padding-bottom: 3rem; 
 }
 
-header {
-            overflow: visible;
-        position: relative;
-        width: 100%;
-        padding-bottom: 0;
-
+/* Algemene sectie padding */
+section {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
 }
 
+/* --- Header & Eerste Sectie (Titel & Datum) --- */
+
+header {
+    overflow: visible;
+    position: relative;
+    width: 100%;
+    padding-bottom: 0;
+}
+
+/* Afbeelding in de Header */
 header img {
     position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        aspect-ratio: 1.7777777778;
-}
-
-/* Stijl de navigatiebalk binnen de footer */
-footer nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1.7777777778;
 }
 
-/* Groepeer de buttons zodat ze als één blok worden behandeld */
-footer nav > div {
+/* Eerste Sectie (direct onder de header) */
+section:first-of-type {
+    width: 100%;
+    padding-top: 2.25rem;
+    padding-bottom: 2.5rem;
+}
+
+/* De lijst met datum, tijd, zaal (flexbox layout) */
+main section:first-of-type ul {
     display: flex;
-    align-items: center;
+    align-items: center; 
+    gap: 1.5rem; 
 }
 
-/* Stijl het logo in de footer */
-footer nav > img {
-    filter: invert(100%); /* Maakt de SVG wit */
-    height: 1.1rem;
-    width: auto;
-}
 
-/* Stijl alle buttons in de footer */
-footer nav button {
-    background: none;
-    border: none;
-    padding: 0.5rem;
-}
+/* --- Sectie 2 (Tickets & Tijden) --- */
 
-/* Stijl alle afbeeldingen in de knoppen */
-footer nav button img {
-    filter: invert(100%); /* Maakt de SVG's in de knoppen wit */
-    height: 1.5rem;
-}
-
-/* Verklein de afbeelding van het hamburgermenu */
-footer nav button:last-of-type img {
-    height: 1.1rem;
-}
-
-/* Algemene stijlen voor links */
-a:active, a:hover {
-    text-decoration: underline;
-}
-
-/* Andere basisstijlen voor typografie en afbeeldingen */
-h1 {
-    font-family: var(--font-family-calibre-light);
-    margin: 0;
-    font-weight: 400;
-    font-size: 2.5rem;
-    line-height: .9;
-    text-transform: uppercase;
-}
-
-h2 {
-    font-family: var(--font-family-calibre);
-    font-size: 1.125rem;
-    line-height: 1.35;
-    margin: 0 0 .5rem;
-    text-transform: uppercase;
-    color: var(--color-text);
-}
-
-h3 {
-    font-family: var(--font-family-calibre);
-    font-size: 1.125rem;
-    line-height: 1.2;
-    max-width: 36em;
-    margin: 1.25rem 0 0;
-    color: var(--color-event);
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
-h4 {
-    font-family: var(--font-family-calibre);
-    font-size: 1.125rem;
-    line-height: 1.2;
-    max-width: 36em;
-    margin: 0.5rem 0 0 0;
-    color: var(--color-event);
-    font-weight: 400;
-}
-
-section:first-of-type h4 {
-    margin: 1.25rem 0 0;
-}
-
-h5 {
-    font-family: var(--font-family-calibre);
-    font-weight: 400;
-    font-size: .875rem;
-    line-height: 1;
-    margin-top: .75rem;
-    color: var(--color-event);
-}
-
-h6 {
-    font-family: var(--font-family-calibre);
-    font-weight: 400;
-    font-size: 2.125rem;
-    line-height: 1.35;
-    margin-top: 0;
-    margin-bottom: 1em;
-    text-transform: uppercase;
-    color: var(--color-white-text);
-}
-
-p {
-    font-family: var(--font-family-calibre);
-    font-weight: 400;
-    font-size: 1.125rem;
-    line-height: 1.35;
-    margin: 0;
-}
-
-main > section:nth-of-type(2) ul:nth-of-type(1) > li:nth-of-type(2) > p {
-    font-family: var(--font-family-calibre-light);
-    font-size: 1rem;
-    font-weight: 600;
-}
-
-body > main > section:nth-of-type(6) > h5 {
-    /* Voeg hier de gewenste opmaak toe */
-    margin-top: 0;
-    margin-bottom: .5em;
-    font-weight: 700;
-    font-size: 1.25rem;
-    line-height: 1.2;
-    text-transform: uppercase;
-    position: relative; /* Voorbeeld: maak de tekst groter */
-    color: var(--color-white-text);       /* Voorbeeld: verander de kleur */
-}
-
-time {
+/* De ticketknop (opvallende accentkleur) */
+section:nth-of-type(2) a:first-of-type {
+    background: transparent;
+    width: 100%;
+    padding: 0.6em 0 0.6em;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    background-color: #d6fe51;
+    color: #000;
+    border: 1px solid #d6fe51;
     font-family: var(--font-family-melkweg);
-    font-weight: 400;
-    font-size: 1.125rem;
-    color: var(--color-text);
+    font-size: 1.375rem;
 }
 
-section:last-of-type h4 time {
-    color: var(--color-white-text);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-
+/* Algemene stijlen voor de tijdenlijst (tweede ul in sectie 2) */
 main section:nth-of-type(2) ul:nth-of-type(2) {
     margin: 0 0 .75rem;
-}
-
-main section:nth-of-type(2) ul:nth-of-type(2) {
     margin-top: 2rem;
     padding-top: .5rem;
     white-space: none;
     border-top: 1px solid #bdbdbd;
 }
 
-/* Selecteert de lijst met de prijzen én de lijst met de tijden */
-main section:nth-of-type(2) ul:nth-of-type(2) > li,
-main section:nth-of-type(2) ul:nth-of-type(2) > li time {
-    font-family: var(--font-family-calibre-light);
-    color: var(--color-text);
-    font-size: 1rem;
-    margin-bottom: 0.4em;
-}
-
-section {
-        margin-right: auto;
-        margin-left: auto;
-        padding-right: 1rem;
-        padding-left: 1rem;
- }
-
- section:first-of-type {
-    width: 100%;
-    padding-top: 2.25rem;
-    padding-bottom: 2.5rem;
- }
-
- main section:first-of-type ul {
-    display: flex;
-    align-items: center; /* Lijn de items verticaal uit */
-    gap: 1.5rem; /* Voeg ruimte toe tussen de elementen */
-}
+/* --- Sectie 3 & 4 (Tekst & Media) --- */
 
 section:nth-of-type(3) {
     margin-right: auto;
@@ -308,15 +91,34 @@ section:nth-of-type(4) {
     padding: calc(1.5vw + 2rem) 1rem;
 }
 
+/* Stijl voor de iframes in sectie 4 (Video/Kaart) */
+iframe {
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 20%;
+}
+
+iframe:first-of-type {
+    height: 12em;
+}
+
+iframe:nth-of-type(3) {
+    height: 100%;
+}
+
+/* --- Sectie 5 (Onderdeel van Pop) --- */
+
 section:nth-of-type(5) a {
-    position: relative; /* Belangrijk voor de absolute positionering van het pijltje */
+    position: relative; 
     display: flex;
     align-items: start;
     gap: 1rem;
-    background-color: #ddd;
+    background-color: var(--pop-background);
     margin-bottom: 8em;
 }
 
+/* Pijltje icoon in de kaart */
 section:nth-of-type(5) a > img:nth-of-type(2) {
     position: absolute;
     top: .75rem;
@@ -332,40 +134,7 @@ section:nth-of-type(5) a div {
     padding-top: .75rem;
 }
 
-section:nth-of-type(5) a div p {
-    margin: 0;
-    font-family: var(--font-family-calibre);
-    font-size: 1.125rem;
-}
-
-section:nth-of-type(5) a div h5 {
-    margin: 0;
-    font-family: var(--font-family-melkweg);
-    font-weight: 400;
-    font-size: .875rem;
-    line-height: 1;
-    text-transform: uppercase;
-    color: var(--color-event);
-}
-
-section:nth-of-type(5) a div p {
-    font-family: var(--font-family-calibre);
-    font-weight: 400;
-    font-size: .75rem;
-    line-height: 1;
-    display: block;
-    margin-bottom: .5rem;
-    font-size: .875rem;
-}
-
-section:nth-of-type(5) a div h5 {
-    font-family: var(--font-family-melkweg);
-    font-weight: 400;
-    font-size: 1.75rem;
-    line-height: .9;
-    margin: 0;
-    color: var(--color-text);
-}
+/* --- Laatste Sectie (Melkweg Tipt) --- */
 
 section:last-of-type{
     background-color: var(--color-border);
@@ -375,32 +144,144 @@ section:last-of-type{
 }
 
 
- iframe {
-    content: "";
-    left: 0;
-    width: 100%;
-    height: 20%;
- }
+/*********************************/
+/* 2. TYPOGRAFIE BASISELEMENTEN */
+/*********************************/
 
- iframe:first-of-type {
-    height: 12em;
- }
+/* H1 (Hoofdtitel van de Artiest) */
+h1 {
+    font-family: var(--font-family-calibre-light);
+    margin: 0;
+    font-weight: 400;
+    font-size: 2.5rem;
+    line-height: .9;
+    text-transform: uppercase;
+}
 
- iframe:nth-of-type(3) {
-    height: 100%;
- }
+/* H2 (Zaalinformatie) */
+h2 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    line-height: 1.35;
+    margin: 0 0 .5rem;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
 
- section:nth-of-type(2) a:first-of-type {
-    background: transparent;
-    width: 100%;
-    padding: 0.6em 0 0.6em;
-    margin-bottom: 1rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    background-color: #d6fe51;
-    color: #000;
-    border: 1px solid #d6fe51;
+/* H3 (Support Act) */
+h3 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    line-height: 1.2;
+    max-width: 36em;
+    margin: 1.25rem 0 0;
+    color: var(--color-event);
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+/* H4 (Tijdschema & Melkweg Tipt datum) */
+h4 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    line-height: 1.2;
+    max-width: 36em;
+    margin: 0.5rem 0 0 0;
+    color: var(--color-event);
+    font-weight: 400;
+}
+
+/* H5 (Aankondiging) */
+h5 {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1;
+    margin-top: .75rem;
+    color: var(--color-event);
+}
+
+/* H6 (Melkweg Tipt Titel) */
+h6 {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: 2.125rem;
+    line-height: 1.35;
+    margin-top: 0;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    color: var(--color-white-text);
+}
+
+/* Algemene stijlen voor de <time> tag */
+time {
     font-family: var(--font-family-melkweg);
-    font-size: 1.375rem;
- }
+    font-weight: 400;
+    font-size: 1.125rem;
+    color: var(--color-text);
+}
+
+
+/* --- Specifieke Typografie Stijlen (Contextueel) --- */
+
+/* H4 voor de 'Support' titel in de eerste sectie */
+section:first-of-type h4 {
+    margin: 1.25rem 0 0;
+}
+
+/* Paragraaf met de prijs (tweede li in de eerste ul van sectie 2) */
+main > section:nth-of-type(2) ul:nth-of-type(1) > li:nth-of-type(2) > p {
+    font-family: var(--font-family-calibre-light);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* H5 in de laatste sectie (Melkweg tipt - header) */
+body > main > section:nth-of-type(6) > h5 {
+    margin-top: 0;
+    margin-bottom: .5em;
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-transform: uppercase;
+    position: relative;
+    color: var(--color-white-text);
+}
+
+/* Kleur van de tijd in de laatste sectie (Melkweg tipt) */
+section:last-of-type h4 time {
+    color: var(--color-white-text);
+}
+
+/* Prijzen en tijden in de tijdschema lijst (tweede <ul> in sectie 2) */
+main section:nth-of-type(2) ul:nth-of-type(2) > li,
+main section:nth-of-type(2) ul:nth-of-type(2) > li time {
+    font-family: var(--font-family-calibre-light);
+    color: var(--color-text);
+    font-size: 1rem;
+    margin-bottom: 0.4em;
+}
+
+/* H5 titel in de vijfde sectie (Onderdeel van Pop) */
+section:nth-of-type(5) a div h5 {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: .9;
+    margin: 0;
+    background-color: var(--pop-background);
+}
+
+/* Subtitel/Paragraaf in de vijfde sectie (Onderdeel van Pop) */
+section:nth-of-type(5) a div p {
+    margin: 0;
+    font-family: var(--font-family-calibre);
+    font-size: 1.125rem;
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: .75rem;
+    line-height: 1;
+    display: block;
+    margin-bottom: .5rem;
+    font-size: .875rem;
+}

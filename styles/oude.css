@@ -1,0 +1,931 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    /* Gebruik de custom property voor de achtergrondkleur */
+    background-color: var(--color-background);
+    /* Gebruik de custom property voor de tekstkleur */
+    color: var(--color-text);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+    /* Kleuren voor dark/light mode */
+    --color-text: #111;
+    --color-white-text: #ffffff;
+    --color-background: #ffffff;
+    --color-border: #000;
+    --color-border-subtle: #b5b0b0;
+    --color-event: #757575;
+
+    /* Lettertypes */
+    --font-family-calibre: "Calibre-Regular", Helvetica, Arial, sans-serif;
+    --font-family-roboto: "Roboto", sans-serif;
+    --font-family-melkweg: "melkweg-regular", sans-serif;
+}
+
+
+/**********************/
+/* LETTERTYPES LADEN */
+/**********************/
+@import url(https://db.onlinewebfonts.com/c/fd811cbfe623f3e2be52b981f67a2102?family=Calibre-Regular);
+
+@font-face {
+    font-family: "Calibre-Regular";
+    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot");
+    src: url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/fd811cbfe623f3e2be52b981f67a2102.svg#Calibre-Regular")format("svg");
+}
+
+@font-face {
+    font-family: 'melkweg-regular';
+    src: url('../fonts/melkweg-regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "calibre-medium";
+    src: url(".../fonts/calibre-medium.woff2") format('woff2');
+}
+
+/*****************/
+/* BASISELEMENTEN */
+/*****************/
+
+h1 {
+    font-family: var(--font-family-calibre);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 1.875rem;
+    margin-top: 0;
+}
+
+h2 {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.35;
+    margin: 0;
+    color: var(--color-white-text);
+}
+
+h3 {
+    font-family: var(--font-family-melkweg);
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: .8;
+    margin-bottom: 2rem;
+}
+
+h4 {
+    font-family: var(--font-family-calibre);
+    margin-top: 0;
+    font-weight: bold;
+    font-size: .875rem;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* Verwijder de margin en padding van de h4's die tijd-tags bevatten */
+main > section > ul > li > a > h4 {
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h5 {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-top: 0;
+    color: var(--color-white-text);
+}
+
+h6 {
+    font-family: var(--font-family-calibre);
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 1.75rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+p {
+    font-family: var(--font-family-calibre);
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.35;
+    margin: 0;
+}
+
+main a {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    text-decoration: none;
+    font-size: .875rem;
+    line-height: 1;
+    text-transform: uppercase;
+    /* Gebruik de custom property voor de tekstkleur van links */
+    color: var(--color-text);
+}
+
+main {
+    /* Je bestaande stijlen */
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 5rem; /* Pas deze waarde aan totdat er genoeg ruimte is */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+section:first-of-type {
+    background-image: url('../images/achtergrond.jpg');
+}
+
+button {
+    /* Gebruik de custom property voor de achtergrondkleur */
+    background-color: var(--color-background);
+    border: none;
+    /* Gebruik de custom property voor de tekstkleur */
+    color: var(--color-text);
+    text-transform: uppercase;
+    padding: 0 0 1rem;
+    text-decoration: none;
+}
+
+/* Nieuwe stijl voor actieve knop */
+.active-button {
+    color: var(--color-text);
+    /* Zwart voor actieve knop */
+}
+
+/* Stijl voor niet-actieve knoppen */
+.button-list button {
+    color: var(--color-event);
+    /* Grijs voor inactieve knop */
+}
+
+/* Deze regel overschrijft de bovenstaande, waardoor de actieve knop zwart wordt */
+.button-list .active-button {
+    color: var(--color-text);
+}
+
+/* Stijl alle time tags uniform */
+time {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: .875rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+    color: var(--color-white-text);
+}
+
+/*********************/
+/* COMPONENTEN & LAYOUT */
+/*********************/
+
+/* Parallax-effect voor de eerste sectie */
+section:first-of-type {
+    background-image: url('../images/achtergrond.jpg');
+    background-size: cover;
+    background-position: center center;
+    position: relative;
+    /* De animatie die we zometeen definiëren */
+    animation: parallax linear;
+    animation-timeline: scroll();
+}
+
+@keyframes parallax {
+    from {
+        background-position: bottom 0px center;
+    }
+
+    to {
+        background-position: bottom -1000px center;
+    }
+}
+
+.grid-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0em;
+}
+
+.grid-list li:nth-child(1),
+.grid-list li:nth-child(4),
+.grid-list li:nth-child(7),
+.grid-list li:nth-child(10) {
+    display: block;
+    grid-column: 1 / span 2;
+    width: 50%;
+    margin: 2rem auto;
+}
+
+.grid-list li:nth-child(2),
+.grid-list li:nth-child(5),
+.grid-list li:nth-child(8) {
+    flex-shrink: 1;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.grid-list li:nth-child(3),
+.grid-list li:nth-child(6),
+.grid-list li:nth-child(9) {
+    margin-top: 3.75rem;
+    flex-shrink: 1;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+section:last-of-type>img:first-of-type {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1.7777777778;
+    margin-bottom: 1rem;
+    margin-top: 1.2rem;
+}
+
+ul:has(button) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    /* Gebruik de custom property voor de grens */
+    border-bottom: 1px solid var(--color-border);
+}
+
+ul:has(button) li button:first-of-type {
+    margin-right: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+
+main section:nth-of-type(2) ul:nth-of-type(3) li {
+    margin-bottom: 1.5rem;
+}
+
+/* Stijlen voor de algemene evenementenlijst */
+main section:nth-of-type(2)>ul:nth-of-type(2)>li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    padding: 0.8rem 0;
+    line-height: 1;
+    border-bottom: 0.5px solid var(--color-border-subtle);
+}
+
+/* De bovenste div met naam en type */
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:first-of-type {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+/* De onderste div met datum en tijd */
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:nth-of-type(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    width: 30%;
+}
+
+
+/* Specifieke stijlen */
+
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:first-of-type>a:first-of-type {
+    font-family: var(--font-family-calibre);
+    font-size: 1rem;
+    line-height: 1.2;
+    display: block;
+    margin: 0 auto .5rem 0;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+main section:nth-of-type(2)>ul:nth-of-type(2)>li>div:first-of-type>a:nth-of-type(2) {
+    font-family: var(--font-family-calibre);
+    font-size: .875rem;
+    line-height: 1.2;
+    margin: 0;
+    color: var(--color-event);
+    text-transform: uppercase;
+}
+
+main section:nth-of-type(2)>ul:nth-of-type(2)>li time {
+    font-size: 1rem;
+    line-height: 1;
+    font-family: var(--font-family-tertiary);
+}
+
+
+section h5~ul h4 {
+    padding: 0.5rem 0rem 0rem;
+}
+
+
+/* STIJLEN VOOR DE NIEUWE OPMERKINGEN VAN DE GEBRUIKER */
+
+/* ADE 2025 */
+main>section>ul>li:first-child>a>h3 {
+    font-family: var(--font-family-calibre);
+    font-size: 1.5rem;
+    line-height: 1.2;
+    margin: .75rem 0 .25rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: var(--color-text);
+}
+
+/* Tijd tags Burst city en Arty Party */
+main>section>ul>li>a>h4>time {
+    font-family: var(--font-family-melkweg);
+    margin-top: 0;
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1;
+    display: inline-block;
+    margin-bottom: 0;
+    color: var(--color-text);
+}
+
+
+
+/* Young Creatives */
+main>section:nth-of-type(2)>h3 {
+    font-family: var(--font-family-melkweg);
+    font-weight: 400;
+    font-size: 2.625rem;
+    line-height: 1.2;
+    margin: 0 0 1.5rem;
+}
+
+section:last-of-type a>p {
+    margin-top: 1.5rem;
+    text-transform: none;
+}
+
+a:active{
+    text-decoration: underline;
+}
+
+/* Selecteer de h4 die direct na de tweede <ul> in de tweede section staat */
+main section:nth-of-type(2)>ul:nth-of-type(2)+h4 {
+    font-family: var(--font-family-calibre);
+    margin-top: 3rem;
+    font-weight: bold;
+    font-size: .875rem;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 48; 
+}
+
+header {
+    padding-right: 1rem;
+    padding-left: 1rem;
+    pointer-events: none;
+    z-index: 75;
+    position: relative;
+    width: 100%;
+    margin-bottom: 1.25rem ;
+    margin-top: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: .5rem 1rem;
+    background-color: var(--color-border);
+    z-index: 1001; /* Zorg ervoor dat de footer altijd boven andere elementen staat */
+}
+
+footer nav {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+footer nav {
+    display: flex;
+    justify-content: space-between; /* Plaats het logo links en de button-groep rechts */
+    align-items: center;
+    padding: 0;
+    width: 100%;
+}
+
+footer nav > div {
+    display: flex; /* Zorgt dat de buttons naast elkaar staan */
+    align-items: center;
+}
+
+footer nav img {
+    filter: invert(100%);
+    height: 1.1rem;
+    width: auto;
+}
+
+footer nav button {
+    background: none;
+    border: none;
+    padding: 0.5rem; /* Zorg voor wat ruimte rond de knoppen, maar niet tussen */
+}
+
+/* Algemene stijl voor de afbeeldingen in de knoppen */
+footer nav button img {
+    filter: invert(100%);
+    height: 1.5rem; /* Standaardgrootte voor alle knopafbeeldingen */
+}
+
+/* Specifieke stijl voor de hamburger-menu afbeelding */
+footer nav button:last-of-type img {
+    height: 1.1rem; /* Maakt de hamburger-menu afbeelding kleiner */
+}
+
+/**************************/
+/* BEWEGING VERMINDER KNOP */
+/**************************/
+
+#verminder-beweging {
+    /* Positie vastzetten: dit maakt de knop 'sticky' */
+    position: fixed; 
+    left: 1rem;
+    
+    /* Plaatsing: 4rem boven de onderkant van het scherm (boven de footer) */
+    bottom: 4rem; 
+    
+    /* Z-index: Boven de main content (die niet fixed is) maar onder de footer (1001) */
+    z-index: 999; 
+    
+    /* Opmaak */
+    font-family: var(--font-family-calibre);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: var(--color-border);
+    padding: 0.6rem 0.8rem;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    opacity: 85%;
+    transition: opacity 0.3s, background-color 0.3s, color 0.3s;
+}
+
+section:nth-of-type(2) {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    z-index: 65;
+    position: relative;
+    width: 100%;
+    padding-top: 2.5rem;
+}
+
+section:nth-of-type(3) {
+    margin: 0;
+    padding: 1.2rem 0;
+    padding-left: 0.4rem;
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+}
+
+section:nth-of-type(4) {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1.2rem;
+}
+
+section:nth-of-type(3) h3 {
+    margin: 0;
+    margin-left: 0.2em;
+}
+
+/* Stijlen voor het pijltje na de ADE-tekst */
+section:nth-of-type(2) > ul:nth-of-type(3) li:first-child p::after {
+    content: "";
+    display: inline-block;
+    width: 0.8em;
+    height: 0.8em;
+    margin-left: 0.5em;
+    background: url('../images/pijltje.svg') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/* Stijlen voor het pijltje na de h3 in de agenda sectie */
+section:nth-of-type(3) a>h3::after {
+    content: "";
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 1.6em;
+    background: url('../images/pijltje.svg') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/* Styling voor het pijltje na de 'Lees meer' alinea */
+section:last-of-type a>p::after {
+    content: "";
+    display: inline-block;
+    width: 0.9em;
+    height: 0.9em;
+    margin-left: 0.5em;
+    background: url('../images/pijltje.svg') no-repeat center center;
+    background-size: contain;
+    vertical-align: middle;
+}
+
+/*****************/
+/* LOGO STYLING */
+/*****************/
+
+/* Container voor de hele "MELKWEG" tekst */
+.melkweg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%; /* Maak de container even breed als het scherm */
+    max-width: 500px; /* Geef de container een maximale breedte */
+    margin: 1.5rem auto;
+}
+
+.letter-box {
+    position: relative;
+    width: 100px; /* De breedte van de letters is nu gebaseerd op de max-width van de container */
+    aspect-ratio: 1 / 1;
+    margin: 0 3px;
+    overflow: hidden;
+}
+
+/* Basisstijl voor alle lijnen van de letters */
+.letter-box span {
+    background-color: black;
+    position: absolute;
+}
+
+/* Animaties (keyframes) */
+@keyframes slideDown {
+  0% {
+    transform: translateY(0); /* Startpositie: links */
+  }
+  100% {
+    transform: translateY(39px); /* Eindpositie: 50px naar rechts */
+  }
+}
+
+@keyframes slideLeft {
+    0%{
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(39px);
+    }
+}
+
+@keyframes rotateLetter {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(90deg); /* Draait een kwartslag */
+    }
+}
+
+@keyframes slideUpMid {
+  0% {
+    transform: translateY(0); /* Startpositie: links */
+  }
+  100% {
+    transform: translateY(-19px); /* Eindpositie: 50px naar rechts */
+  }
+}
+
+@keyframes slideRightMid {
+  0% {
+    transform: translateX(0); /* Startpositie: links */
+  }
+  100% {
+    transform: translateX(20px); /* Eindpositie: 50px naar rechts */
+  }
+}
+
+/* Stijl voor de letter M */
+.m-letter {
+    animation: rotateLetter 1s;
+    animation-delay: 0.5s; /* Wacht tot de slide animatie klaar is */
+}
+
+.links {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.rechts {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+
+.boven {
+    width: 100%;
+    height: 15%;
+    top: 0;
+    left: 0;
+}
+
+.onder {
+    width: 100%;
+    height: 15%;
+    bottom: 0;
+    left: 0;
+    /*animation: slideMid 0.5s forwards; voor de m*/
+}
+
+.verticaal {
+    width: 15%;
+    height: 100%;
+    top: 0;
+    left: 43%;
+}
+
+.horizontaal {
+    width: 100%;
+    height: 15%;
+    top: 43%;
+    left: 0;
+}
+
+/* Stijl voor de letter K */
+
+.schuin {
+    width: 15%;
+    height: 120%;
+    top: 60%;
+    left: 0;
+    transform-origin: top left;
+    transform: rotate(-67deg);
+}
+
+.schuin-2 {
+    width: 15%;
+    height: 120%;
+    top: 15%;
+    right: -10%;
+    transform-origin: top right;
+    transform: rotate(67deg);
+}
+
+
+/* Stijl voor de letter G */
+
+.klein-rechts {
+    width: 15%;
+    height: 50%;
+    bottom: 0;
+    left: 85%;
+}
+
+.klein-midden {
+    width: 60%;
+    height: 15%;
+    bottom: 40%;
+    left: 40%;
+}
+
+.slideDown {
+    animation: slideDown 1s ease;
+    
+}
+
+.slideUpMid {
+    animation: slideUpMid 1s ease;
+} 
+
+.slideRightMid {
+    animation: slideRightMid 1s ease;
+}
+
+/**************************/
+/* FULLSCREEN NAVIGATIE OPNIEUW GESTYLED */
+/**************************/
+
+/* Basisstijl en positionering van het menu */
+#fullscreen-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: var(--color-white-text);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.25rem 3rem;
+
+    /* ANIMATIE-EIGENSCHAPPEN VOOR FADE-IN */
+    
+    /* 1. Start onzichtbaar en is niet klikbaar */
+    visibility: hidden; 
+    opacity: 0; 
+    
+    /* 2. Zorgt voor de zachte overgang */
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out; 
+
+    /* De transform: translateY(-100%) is nu verwijderd! */
+}
+
+
+/* Wanneer de class 'open' wordt toegevoegd door JavaScript */
+#fullscreen-menu.open {
+    /* 1. Maak zichtbaar */
+    visibility: visible;
+    /* 2. Laat zacht verschijnen */
+    opacity: 1; 
+}
+
+/* Algemene reset voor alle UL's in het menu */
+#fullscreen-menu nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* BELANGRIJK: Zorgt dat alle list items ONDER elkaar staan */
+#fullscreen-menu nav ul li {
+    display: block; /* Maakt er een blok-element van, zodat ze op een nieuwe regel komen */
+    margin: 1rem 0;
+    line-height: 1;
+}
+
+/* Overschrijf de algemene 'main a' regel voor het fullscreen menu */
+#fullscreen-menu nav a {
+    text-transform: none; /* Hiermee verwijder je de uppercase opmaak van main a */
+    text-decoration: none;
+    padding: 1rem 0;
+    color: var(--color-white-text);
+}
+
+
+/* === STIJLGROEP 1: EERSTE UL (Hoofdlinks) === */
+
+#fullscreen-menu nav ul:first-of-type {
+    margin-bottom: 2rem; /* Ruimte tussen de twee lijsten */
+}
+
+/* Stijl de A-tags in de EERSTE UL */
+#fullscreen-menu nav ul:first-of-type li a {
+    font-family: var(--font-family-calibre); /* Voor de 'Melkweg-stijl' */
+    font-size: 1.75rem; /* Grote tekst */
+    font-weight: 400;
+}
+
+
+/* Stijl de A-tags in de TWEEDE UL */
+#fullscreen-menu nav ul:nth-of-type(2) li a {
+    font-family: var(--font-family-calibre); /* Gebruik een ander lettertype */
+    font-size: 1.125rem;
+    font-weight: 400;
+    /* Gebruik een subtiele grijze kleur */
+    color: var(--color-white-text);
+}
+
+/* === STIJLGROEP 3: DERDE UL (SVG/Iconen) === */
+
+#fullscreen-menu nav ul:nth-of-type(3) {
+    display: flex; /* ZET ITEMS NAAST ELKAAR */
+    gap: 1rem; /* Ruimte tussen de iconen */
+    margin-top: 2rem;
+}
+
+/* Zorgt dat de LI's in de iconenlijst niet de verticale marge-stijl krijgen */
+#fullscreen-menu nav ul:nth-of-type(3) li {
+    margin: 0; 
+}
+
+/* Stijl de afbeeldingen/SVG's */
+#fullscreen-menu nav ul:nth-of-type(3) img {
+    height: 2rem; /* Grootte van de iconen */
+    width: auto;
+    filter: invert(100%); /* MAAKT DE SVG'S WIT */
+    display: block; /* Zodat de hoogte goed werkt */
+}
+
+
+/* === STIJLGROEP 3: DERDE UL (NL/EN) === */
+
+#fullscreen-menu nav ul:nth-of-type(4) {
+    display: flex; /* ZET ITEMS NAAST ELKAAR */
+    gap: 1.2rem; /* Ruimte tussen de iconen */
+    margin-top: 0.5rem;
+}
+
+#fullscreen-menu nav ul:nth-of-type(4) li {
+    font-family: var(--font-family-calibre); /* Voor de 'Melkweg-stijl' */
+    font-size: 1.1rem; /* Grote tekst */
+    text-transform: uppercase;
+}
+
+#fullscreen-menu nav ul:nth-of-type(4) li:first-of-type {
+    text-decoration: underline;
+}
+
+#fullscreen-menu nav ul:nth-of-type(4) li:nth-of-type(2) {
+    opacity: 50%;
+}
+
+/* ----------------------------------------------- */
+/* STIJLEN DIE ANIMATIES UITSCHAKELEN/VERMINDEREN */
+/* ----------------------------------------------- */
+
+/* 1. Stop de Parallax scroll-animatie */
+body.motion-reduced section:first-of-type {
+    animation: none !important; 
+    background-attachment: scroll !important; /* Zorgt dat de achtergrond gewoon meescrolt */
+}
+
+/* 2. Stop de Logo animatie */
+body.motion-reduced .letter-box span {
+    animation: none !important; 
+}
+
+/* Optioneel: Maak alle overgangen onmiddellijk om te voorkomen dat er nog 'beweging' is */
+body.motion-reduced * {
+    transition-duration: 0.001ms !important;
+    animation-duration: 0.001ms !important;
+}
+
+/* ------------------------------------------------------------------- */
+/* AUTOMATISCHE BEWEGINGSREDUCTIE VIA SYSTEEMINSTELLINGEN (Media Query) */
+/* ------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    /* 1. Stop de Parallax scroll-animatie */
+    section:first-of-type {
+        animation: none; 
+        background-attachment: scroll;
+    }
+
+    /* 2. Stop de Logo animatie */
+    .letter-box span, .m-letter{
+        animation: none; 
+    }
+
+    /* 4. Verberg de handmatige schakelknop (aangezien de voorkeur al is ingesteld) */
+    #verminder-beweging {
+        display: none;
+    }
+}
